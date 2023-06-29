@@ -22,9 +22,9 @@ enum Message {
 }
 
 impl Application for Pokedex {
+    type Executor = iced::executor::Default;
     type Message = Message;
     type Theme = Theme;
-    type Executor = iced::executor::Default;
     type Flags = ();
 
     fn new(_flags: ()) -> (Pokedex, Command<Message>) {
@@ -94,6 +94,10 @@ impl Application for Pokedex {
             .center_x()
             .center_y()
             .into()
+    }
+
+    fn theme(&self) -> Self::Theme {
+        Theme::Dark
     }
 }
 
